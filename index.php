@@ -1,6 +1,6 @@
 <?php
 //database connection
-//include('config/database.php');
+include('config/db_connection.php');
 
 
 ?>
@@ -9,46 +9,72 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <title>STUDENT REGISTRATION FORM</title>
 </head>
 <body>
 <?php
-//$object = new db_class;
-//$object->connect();
+$database_conn = new db_class;
+$database_conn->connect();
+
+$sql = "SELECT * FROM `user_login`";
+$results=$database_conn->query($sql);
+echo "<pre>";
+print_r($results);
+echo "</pre>";
 ?> 
-<div class='bold-line'></div>
-<div class='container'>
-  <div class='window'>
-    <div class='overlay'></div>
-    <div class='content'>
-      <div class='welcome'>Hello There!</div>
-      <div class='subtitle'>REGISTRATION</div>
-      <div class='input-fields'>
-        <label>Fullname:</label>
-        <input type='text' class='input-line full-width'></input>
-        <label>Email:</label>
-        <input type='email' class='input-line full-width'></input>
-        <label>Password:</label>
-        <input type='password' class='input-line full-width'></input>
+<div class="flex-container">
 
-        <label>Username:</label>
-        <input type='text' class='input-line full-width'></input>
-        <label>Phone Number:</label>
-        <input type='number' class='input-line full-width'></input>
-        <label>Confirm Password:</label>
-        <input type='password' class='input-line full-width'></input>
-
-        <label>Gender:</label>
-        <input type='Checkbox' class='input-line full-width'>Male</input>
-        <input type='Checkbox' class='input-line full-width'>Female</input>
-      
+<div class="flex-box1">
+  <div class="new-user flex-box">
+    <h2>Create new user</h2>
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+      <input type="hidden" name="id" value="">
+      <label>Username:</label>
+      <input type="text" name="username" value="">
+      <div class="error">
+        <?php echo $errors['username'] ?? '' ?>
       </div>
-      <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div>
-      <div><button class='ghost-round full-width'>Create Account</button></div>
-    </div>
+
+      <label>Email:</label>
+      <input type="text" name="email" value="">
+      <div class="error">
+        <?php echo $errors['email'] ?? '' ?>
+      </div>
+      <input type="submit">
+    </form>
   </div>
 </div>
+
+<div class="flex-box2">
+      <div class="table flex-box">
+        <h2>USERS FORM</h2>
+        <table class="table text-center">
+          <thead>
+            <tr class="bg-dark text-white">
+              <th>ID</th>
+              <th>USERNAME</th>
+              <th>EMAIL</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+              <a class='btn btn-primary btn-sm'>Edit</a>
+              <a class='btn btn-danger btn-sm'>Delete</a>
+              </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>

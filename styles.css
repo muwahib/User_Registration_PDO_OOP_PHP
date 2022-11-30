@@ -1,214 +1,252 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
-body,
-html {
+* {
   margin: 0;
-  height: 100%;
-}
-
-input {
-  border: none;
-}
-
-button:focus {
-  outline: none;
-}
-
-::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-::-webkit-input-placeholder .input-line:focus +::input-placeholder {
-  color: #fff;
-}
-
-.highlight {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 400;
-  cursor: pointer;
-  transition: color .2s ease;
-}
-
-.highlight:hover {
-  color: #fff;
-  transition: color .2s ease;
-}
-
-.spacing {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  height: 120px;
-  font-weight: 300;
-  text-align: center;
-  margin-top: 10px;
-  color: rgba(255, 255, 255, 0.65)
-}
-
-.input-line:focus {
-  outline: none;
-  border-color: #fff;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.ghost-round {
-  cursor: pointer;
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 25px;
-  color: rgba(255, 255, 255, 0.65);
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
-  font-size: 19px;
-  font-size: 1.2rem;
-  font-family: roboto;
-  font-weight: 300;
-  line-height: 2.5em;
-  margin-top: auto;
-  margin-bottom: 25px;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.ghost-round:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.input-line {
-  background: none;
-  margin-bottom: 10px;
-  line-height: 2.4em;
-  color: #fff;
-  font-family: roboto;
-  font-weight: 300;
-  letter-spacing: 0px;
-  letter-spacing: 0.02rem;
-  font-size: 19px;
-  font-size: 1.2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.input-fields {
-  margin-top: 25px;
-}
-
-.container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: #eee;
-  height: 100%;
-}
-
-.content {
-  padding-left: 25px;
-  padding-right: 25px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  z-index: 5;
-}
-
-.welcome {
-  font-weight: 200;
-  margin-top: 75px;
-  text-align: center;
-  font-size: 40px;
-  font-size: 2.5rem;
-  letter-spacing: 0px;
-  letter-spacing: 0.05rem;
-}
-
-.subtitle {
-  text-align: center;
-  line-height: 1em;
-  font-weight: 100;
-  letter-spacing: 0px;
-  letter-spacing: 0.02rem;
-}
-
-.menu {
-  background: rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 50px;
-}
-
-.window {
-  z-index: 100;
-  color: #fff;
-  font-family: roboto;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  padding: 0;
   box-sizing: border-box;
-  height: 560px;
-  width: 360px;
+}
+body {
+  background: grey; 
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100%;
+}
+.flex-container{
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.flex-box{
+    height: 300px; 
+    background: #fff;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+}
+.flex-box1{
+   width: 50%;
+   position: absolute;
+   left: 10px;
+}
+.flex-box2{
+    width: 50%;
+    position: absolute;
+    right: 350px;
+    top: -70px;
+ }
+
+
+/* login style */
+.new-user {
   background: #fff;
-  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
+  padding: 50px 40px;
+  max-width: 50%;
+  margin: 30px;
+}
+h2 {
+  text-align: center;
+  color: #555;
 }
 
-.overlay {
-  background: -webkit-linear-gradient(#8CA6DB, #B993D6);
-  background: linear-gradient(#8CA6DB, #B993D6);
-  opacity: 0.85;
-  filter: alpha(opacity=85);
-  height: 560px;
-  position: absolute;
-  width: 360px;
-  z-index: 1;
+label,
+input {
+  display: block;
+  margin: 10px 0;
+}
+label {
+  color: #777;
 }
 
-.bold-line {
-  background: #e7e7e7;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  margin: auto;
+input[type="text"],
+input[type="email"] {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
   width: 100%;
-  height: 360px;
-  z-index: 1;
-  opacity:0.1;
-    background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') left no-repeat;
-  background-size:cover;
+}
+input[type="submit"] {
+  margin: 24px auto;
+  font-size: 18px;
+  background: coral;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 10px;
 }
 
-@media (max-width: 500px) {
-  .window {
-    width: 100%;
-    height: 100%;
-  }
-  .overlay {
-    width: 100%;
-    height: 100%;
-  }
+/* table style */
+.table {
+  background: #fff;
+  padding: 50px 90px;
+  max-width: 70%;
+  margin: 100px;
+  
+}
+.st_viewport {
+  max-height: 500px;
+  overflow: auto;
+}
+._id {
+  min-width: 80px;
+}
+._username {
+  min-width: 130px;
+}
+._email {
+  min-width: 150px;
+}
+
+/* Sticky table styles */
+.st_viewport {
+  background: #fff;
+  color: rgb(27, 30, 36);
+  margin: 20px 0;
+  padding: auto;
+}
+
+/* ##   header */
+.st_table_header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: rgb(27, 30, 36);
+  color: rgb(220, 220, 220);
+}
+.st_table_header h2 {
+  font-weight: 400;
+  margin: 0 20px;
+  padding: 20px 0 0;
+}
+.st_table_header .st_row {
+  color: rgba(220, 220, 220, 0.7);
+}
+
+/* ##  table */
+.st_table {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+/* #   row */
+.st_row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+.st_table .st_row:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* #   column */
+.st_column {
+  padding: 10px 20px;
+}
+
+/* mobile size */
+@media screen and (min-width: 620px){
+    .flex-container{
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .flex-box{
+        height: 330px; 
+        background: #fff;
+        border-radius: 10px;
+        margin: 5px;
+        position: relative;
+    }
+    .flex-box1{
+       width: 100%;
+       position: absolute;
+       left: 245px;
+    }
+    .flex-box2{
+        width: 50%;
+        position: absolute;
+        right: 380px;
+        top: 410px;
+    }
+
+    .table {
+        background: #fff;
+        padding: 50px 15px;
+        max-width: 100%;
+        margin: 70px;
+    }
+}
+
+/* ipad size */
+@media screen and (min-width: 990px){
+    .flex-container{
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .flex-box{
+        height: 350px; 
+        background: #fff;
+        border-radius: 10px;
+        margin: 5px;
+        position: relative;
+    }
+    .flex-box1{
+       width: 50%;
+       position: absolute;
+       left: 10px;
+    }
+    .flex-box2{
+        width: 50%;
+        position: absolute;
+        right: 210px;
+        top: -25px;
+    }
+
+    .table {
+        background: #fff;
+        padding: 80px 15px;
+        max-width: 100%;
+        margin: 30px; 
+    }
+
+}
+
+/* laptop size */
+@media screen and (min-width: 1200px){
+    .flex-container{
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .flex-box{
+        height: 300px; 
+        background: #fff;
+        border-radius: 10px;
+        margin: 5px;
+        position: relative;
+    }
+    .flex-box1{
+       width: 50%;
+       position: absolute;
+       left: 10px;
+    }
+    .flex-box2{
+        width: 50%;
+        position: absolute;
+        right: 220px;
+        top: 0px;
+     }
+
 }
