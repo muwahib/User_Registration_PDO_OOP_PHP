@@ -15,14 +15,22 @@ include('config/db_connection.php');
 </head>
 <body>
 <?php
-$database_conn = new db_class;
-$database_conn->connect();
 
-$sql = "SELECT * FROM `user_login`";
-$results=$database_conn->query($sql);
+$database_conn = new db_class;
+
+$sql="SELECT * FROM suser_login";
+
+$database_conn->query($sql);
+
+
+
+$results =$database_conn->fetch_obj();
+
 echo "<pre>";
 print_r($results);
 echo "</pre>";
+
+
 ?> 
 <div class="flex-container">
 
@@ -60,7 +68,8 @@ echo "</pre>";
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <?php
+            echo "<tr>
               <td></td>
               <td></td>
               <td></td>
@@ -68,7 +77,8 @@ echo "</pre>";
               <a class='btn btn-primary btn-sm'>Edit</a>
               <a class='btn btn-danger btn-sm'>Delete</a>
               </td>
-              </tr>
+              </tr>";
+              ?>
           </tbody>
         </table>
       </div>
