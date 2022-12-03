@@ -8,7 +8,7 @@ class db_class{
     private $charset;
     private $stmt;
 
-     //db_conn
+    
     public function __construct()
     {
         $this->servername = "localhost";
@@ -30,7 +30,7 @@ class db_class{
         }
         
     }
-    //query
+    //query & prepare
     public function query($sql_query){
        $conn = $this->connect();
         $this->stmt=$conn->prepare($sql_query);
@@ -46,7 +46,7 @@ class db_class{
     //execute & fetch_obj
     public function fetch_obj(){
         $this->execute_stmt();
-        return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

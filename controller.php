@@ -1,12 +1,13 @@
 <?php
+//database connection
+require_once('config/db_connection.php');
 
 class crud_contoller{
-
-    public function create(){}
-    public function read(){}
-    public function delete(){}
-    public function update(){}
-    
+    //private varible data
+    public function create(){
+   
+        
+    }    
 }
 
 ?>
