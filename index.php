@@ -2,9 +2,7 @@
 //database connection
 // include('config/db_connection.php');
 require_once('config/db_connection.php');
-
 ?>
-
 
 <html lang="en">
 <head>
@@ -15,7 +13,7 @@ require_once('config/db_connection.php');
 </head>
 <body>
 <?php
-
+//read 
 $database_conn = new db_class;
 
 $sql="SELECT * FROM user_login";
@@ -23,6 +21,19 @@ $sql="SELECT * FROM user_login";
 $database_conn->query($sql);
 
 $results =$database_conn->fetch_obj();
+
+//insert
+if(isset($_POST['username'])){
+  $username=$_POST['username'];
+  $email=$_POST['email'];
+
+  $sql="INSERT INTO user_login (username,email) VALUES ('$username','$email')";
+  $prep =$database_conn->query($sql);
+  $prep->execute();
+}
+//update
+
+//delete
 
 ?> 
 
@@ -76,7 +87,7 @@ $results =$database_conn->fetch_obj();
               <?php echo $row['email']; ?>
               </td>
               <td>
-              <a class='btn btn-primary btn-sm'>Edit</a>
+              <a class='btn btn-primary btn-sm' href='update.php?id=$row[id]'>Update</a>
               <a class='btn btn-danger btn-sm'>Delete</a>
               </td>
               </tr>
