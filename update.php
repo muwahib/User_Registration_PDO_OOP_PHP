@@ -13,15 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $sql="SELECT * FROM user_login WHERE `id`='$id' LIMIT 1";
     $database_conn->query($sql);
     $row=$database_conn->fetch_obj()[0];
-   
   }
 }
 
 
 //update data
 if (isset($_POST['update'])) {
-  echo "hello";
-  die();
   $id=$_POST['id'];
   $username=$_POST['username'];
   $email=$_POST['email'];
