@@ -22,7 +22,7 @@ $database_conn->query($sql);
 
 $results =$database_conn->fetch_obj();
 
-//insert
+//insert--create
 if(isset($_POST['username'])){
   $username=$_POST['username'];
   $email=$_POST['email'];
@@ -31,9 +31,16 @@ if(isset($_POST['username'])){
   $prep =$database_conn->query($sql);
   $prep->execute();
 }
-//update
-
 //delete
+if(isset($_GET['id'])){
+  $id=$_GET['id'];
+  $sql="DELETE FROM `user_login` WHERE `id`='$id'";
+  $del =$database_conn->query($sql);
+  $del->execute();
+}
+$sql="SELECT * from user_login";
+$del =$database_conn->query($sql);
+$del->execute();
 
 ?> 
 
@@ -75,23 +82,17 @@ if(isset($_POST['username'])){
           </thead>
           <tbody>
             <?php
-            foreach ($results as $row) {?>
-            <tr>
-              <td>
-              <?php echo $row['id']; ?>
-              </td>
-              <td>
-              <?php echo $row['username']; ?>
-              </td>
-              <td>
-              <?php echo $row['email']; ?>
-              </td>
+            foreach ($results as $row) {
+            echo "<tr>
+              <td>" . $row['id'] . " </td>
+              <td>" . $row['username'] . "</td>
+              <td>". $row['email'] ."</td>
               <td>
               <a class='btn btn-primary btn-sm' href='update.php?id=$row[id]'>Update</a>
-              <a class='btn btn-danger btn-sm'>Delete</a>
+              <a class='btn btn-danger btn-sm'href='index.php?id=$row[id]'>Delete</a>
               </td>
-              </tr>
-            <?php }
+              </tr>";
+            }
             ?>
           </tbody>
         </table>

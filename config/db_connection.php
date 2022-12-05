@@ -5,7 +5,7 @@ class db_class{
     private $username;
     private $password;
     private $dbname;
-    private $charset;
+    private $charset; 
     private $stmt;
 
     
